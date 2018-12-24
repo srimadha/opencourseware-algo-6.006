@@ -32,13 +32,14 @@ public class PeakFinder2Dimension {
     public static void main( String args[]){
 
         int question[][] = {
-                {1,2,3,4},
-                {2,3,4,5},
+                {1,2,3,1},
+                {2,3,4,3},
                 {5,3,2,4},
                 {2,4,1,3}
         };
 
-        System.out.println( findPeak( question, 4, 4 ));
+        int peak[] = findPeak( question, 4, 4 );
+        System.out.println( peak[0] + "," + peak[1] );
 
     }
 }

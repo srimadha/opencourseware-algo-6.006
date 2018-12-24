@@ -13,6 +13,24 @@ public class PeakFinder {
      * @param j
      * @return
      */
+
+
+    public static int findPeakNonRecursive( int[] question ){
+        for( int i =0; i < question.length; i ++ ){
+            if( i == 0 ) {
+                if( question[i] >= question[i+1] )
+                    return i;
+            }else if ( i == question.length - 1 ){
+                if( question[i] >= question[i-1])
+                    return i;
+            }else{
+                if( question[i] >= question[i+1] && question[i] >= question[i-1] )
+                    return i;
+            }
+        }
+        return -1;
+    }
+
     public static int findPeak(int[] question, int i, int j) {
 
         if (i > j) {
@@ -47,8 +65,9 @@ public class PeakFinder {
     }
 
     public static void main(String[] args) {
-        int question[] = {1, 2, 3, 4, 5};
+        int question[] = {1, 2, 3, 4, 5, 4};
         System.out.println(findPeak(question, 0, question.length - 1));
+        System.out.println(findPeakNonRecursive(question));
     }
 }
 

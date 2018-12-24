@@ -1,0 +1,57 @@
+Lecture 2 ( Models of Computation )
+=====================
+
+Whats an algorithm?
+	Computaional procedure for solving a problem
+	Mathematical analog of computer code.
+	Input -> Algorithm -> Output
+
+Program <-> Algorithm
+Programming Language <-> Psuedocode/structured english
+Computer <-> Model of computaion
+
+Model of computation
+1. Specifics
+2. What operation an algorithm is allowed
+3. cost ( time, .. ) of each op.
+
+1. Random Access Machine ( RAM )
+- Random access memory ( modeled by big array )
+- in theta(1) time
+	- can load O(1)
+	- do computation O(1)
+	- store O(1)
+- O(1) registers
+
+- word : w bits
+
+2. Pointer Machine:
+- Dynamically allocated objects
+- object has O(1) fields
+- fields  = word or pointer
+
+
+Algorithm
+------------------
+Document Distance
+
+d( D1, D2 ) closeness between 2 documents
+- document = sequence of words
+- words = string of alphanumeric chars
+- idea = shared words
+D[w] = number of occurances of w in document D
+
+D1 = "the cat"
+D2 = "the dog"
+
+d'( D1, D2) =  D1.D2
+	    = Sigma D1[w].D2[w] / |D1||D2|
+
+d(D1, D2)= arcos --|
+
+
+ALgorithm
+1. Split Doc into words
+2. Compute word frequencies
+3. Dot product
+

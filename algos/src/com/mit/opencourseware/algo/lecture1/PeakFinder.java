@@ -9,8 +9,6 @@ public class PeakFinder {
     /**
      * Finding peak using binary search, handling the edge cases in the beginning there should be a better way to do this.
      * @param question
-     * @param i
-     * @param j
      * @return
      */
 
@@ -31,6 +29,14 @@ public class PeakFinder {
         return -1;
     }
 
+    /**
+     *
+     *
+     * @param question
+     * @param i
+     * @param j
+     * @return
+     */
     public static int findPeak(int[] question, int i, int j) {
 
         if (i > j) {

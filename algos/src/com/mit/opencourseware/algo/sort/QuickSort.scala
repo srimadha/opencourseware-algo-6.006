@@ -1,8 +1,7 @@
 object QuickSort{
 
-  def quickSort[T]( arr : List[T], func: ( T, T) => Int ) : List[T] = {
-
-    if( arr.length <= 1)  arr
+  def quickSort[T]( arr : List[T], func: (T, T) => Int ) : List[T] = {
+    if( arr.length <= 1) arr
     else {
       val pivot = arr(arr.length / 2)
       List.concat(
@@ -24,12 +23,8 @@ object QuickSort{
     val arr = random.shuffle( 1 to 80) toList
     val solved: List[Int] = quickSort(arr, func)
 
-    for( i <- 0 to arr.length - 1){
-      print( arr(i) + ",");
-    }
+    arr.foreach( p => print(p + ","))
     println()
-    for( i <- 0 to arr.length - 1){
-      print( solved(i) + ",");
-    }
+    solved.foreach( p => print(p + ","))
   }
 }

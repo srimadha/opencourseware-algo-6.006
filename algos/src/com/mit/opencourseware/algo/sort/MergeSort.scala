@@ -1,4 +1,4 @@
-package com.mit.opencourseware.algo.lecture3
+package com.mit.opencourseware.algo.sort
 
 /**
   * Created by Sri on 1/4/2019npm
@@ -16,7 +16,7 @@ object MergeSort {
     }
   }
 
-  def mergeSort[T]( array : List[T], func: ( T, T) => Boolean ): List[T] = {
+  def mergeSort[T]( array : List[T], func: (T, T) => Boolean ): List[T] = {
     if( array.size == 0 || array.size == 1) return array
     else{
       val mid = array.length / 2

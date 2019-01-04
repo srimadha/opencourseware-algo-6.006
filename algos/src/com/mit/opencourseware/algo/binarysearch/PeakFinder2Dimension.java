@@ -1,4 +1,4 @@
-package com.mit.opencourseware.algo.lecture1;
+package com.mit.opencourseware.algo.binarysearch;
 
 /**
  * Created by Sri on 12/22/2018.

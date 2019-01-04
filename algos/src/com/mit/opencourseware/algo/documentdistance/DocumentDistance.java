@@ -1,4 +1,4 @@
-package com.mit.opencourseware.algo.lecture2;
+package com.mit.opencourseware.algo.documentdistance;
 
 import java.util.HashMap;
 

@@ -1,1 +1,0 @@
-val arry = new Array[Int](5)

@@ -49,7 +49,7 @@ class MaximumBinaryTree {
   def constructMaximumBinaryTreeHelper(nums: Array[Int], beginIndex: Int, endIndex: Int): TreeNode = {
     if (beginIndex > endIndex) return null
     val maxIndex = findMaxIndex(nums, beginIndex, endIndex)
-    val root = TreeNode(nums(maxIndex));
+    val root = new TreeNode(nums(maxIndex));
     root.left = constructMaximumBinaryTreeHelper(nums, beginIndex, maxIndex - 1)
     root.right = constructMaximumBinaryTreeHelper(nums, maxIndex + 1, endIndex)
     return root;

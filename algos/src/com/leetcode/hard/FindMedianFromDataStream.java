@@ -42,7 +42,7 @@ public class FindMedianFromDataStream {
     PriorityQueue<Integer> minQueue;
     PriorityQueue<Integer> maxQueue;
 
-    public MedianFinder() {
+    public FindMedianFromDataStream() {
         minQueue = new PriorityQueue<>(new Comparator<Integer>() {
             public int compare(Integer n1, Integer n2) {
                 if(n1 == n2) return 0;

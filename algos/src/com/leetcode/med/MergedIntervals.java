@@ -31,13 +31,13 @@ public class MergedIntervals {
     private class IntervalComparator implements Comparator<Interval> {
         @Override
         public int compare(Interval a, Interval b) {
-            return a.start < b.start ? -1 : a.start == b.start ? 0 : 1;
+            return a.start - b.start;
         }
     }
 
     public List<Interval> merge(List<Interval> intervals) {
         Collections.sort(intervals, new IntervalComparator());
-        LinkedList<Interval> merged = new LinkedList<Interval>();
+        LinkedList<Interval> merged = new LinkedList<>();
 
 
         for (Interval interval : intervals) {

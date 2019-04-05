@@ -71,7 +71,7 @@ public class PeakFinder {
     }
 
     public static void main(String[] args) {
-        int question[] = {1, 2, 3, 4, 5, 4};
+        int question[] = {7, 6, 5, 4, 5, 6, 7};
         System.out.println(findPeak(question, 0, question.length - 1));
         System.out.println(findPeakNonRecursive(question));
     }

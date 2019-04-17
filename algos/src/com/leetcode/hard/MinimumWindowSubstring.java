@@ -1,3 +1,7 @@
+package com.leetcode.hard;
+import java.util.HashMap;
+import java.util.Map;
+
 /**
 https://leetcode.com/problems/minimum-window-substring/
 

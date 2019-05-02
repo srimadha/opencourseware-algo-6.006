@@ -35,7 +35,7 @@ public class SkyLine {
     }
 
     /**
-     *  Merge two skylines together.
+     * Merge two skylines together.
      */
     public List<int[]> mergeSkylines(List<int[]> left, List<int[]> right) {
         int nL = left.size(), nR = right.size();
@@ -53,8 +53,7 @@ public class SkyLine {
                 x = pointL[0];
                 leftY = pointL[1];
                 pL++;
-            }
-            else {
+            } else {
                 x = pointR[0];
                 rightY = pointR[1];
                 pR++;
@@ -93,8 +92,8 @@ public class SkyLine {
     }
 
     /**
-     *  Append the rest of the skyline elements with indice (p, n)
-     *  to the final output.
+     * Append the rest of the skyline elements with indice (p, n)
+     * to the final output.
      */
     public int appendSkyline(List<int[]> output, List<int[]> skyline,
                              int p, int n, int currY) {

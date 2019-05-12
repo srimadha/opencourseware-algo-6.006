@@ -1,6 +1,7 @@
 package com.leetcode.med;
 
 import java.util.Arrays;
+import java.util.Stack;
 
 /**
  * Created by Sri on 4/28/2019.
@@ -28,6 +29,18 @@ public class DailyTemperatures {
             if (warmer_index < Integer.MAX_VALUE)
                 ans[i] = warmer_index - i;
             next[T[i]] = i;
+        }
+        return ans;
+    }
+
+    public int[] dailyTemperatures2(int[] T) {
+        int ans[] = new int[T.length];
+        Stack<Integer> stack= new Stack<>();
+
+        for(int i = T.length - 1; i>=0 ; i-- ){
+            while( !stack.isEmpty() && T[stack.peek()] <= T[i] ) stack.pop();
+            ans[i] = stack.isEmpty() ? 0 : stack.peek() - i;
+            stack.push(i);
         }
         return ans;
     }

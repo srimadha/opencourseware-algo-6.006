@@ -1,3 +1,5 @@
+package com.leetcode.med;
+
 /**
 
 https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/
@@ -23,8 +25,16 @@ Return the following binary tree:
 
 **/
 
-class FromPreOrderInOrder{
- 
+class BinaryTreeFromPreOrderInOrder {
+    class TreeNode {
+        TreeNode left;
+        TreeNode right;
+        int val;
+
+        TreeNode(int num) {
+            this.val = num;
+        }
+    }
     static int preIndex = 0;
     public TreeNode buildTree(int[] preorder, int[] inorder) {
         preIndex = 0;

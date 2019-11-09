@@ -1,3 +1,8 @@
+package com.leetcode.med;
+
+import java.util.LinkedList;
+import java.util.Queue;
+
 /**
 
 https://leetcode.com/problems/populating-next-right-pointers-in-each-node/
@@ -47,6 +52,16 @@ class Node {
 };
 */
 class BinaryTreePopulateNextPointer {
+    class Node{
+        Node left;
+        Node right;
+        Node next;
+        int val;
+
+        Node(int num) {
+            this.val = num;
+        }
+    }
     public Node connect(Node root) {
         
        if( root == null ){

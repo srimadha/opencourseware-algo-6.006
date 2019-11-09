@@ -1,3 +1,10 @@
+package com.leetcode.med;
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -8,6 +15,15 @@
  * }
  */
 class ZigZagLevelOrderBST {
+    class TreeNode {
+        TreeNode left;
+        TreeNode right;
+        int val;
+
+        TreeNode(int num) {
+            this.val = num;
+        }
+    }
     public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
         List<List<Integer>> result = new ArrayList<>();
         List<Integer> soln = new ArrayList<>();

@@ -1,3 +1,5 @@
+package com.leetcode.easy;
+
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -8,6 +10,15 @@
  * }
  */
 class MaxDepthBT {
+    class TreeNode {
+        TreeNode left;
+        TreeNode right;
+        int val;
+
+        TreeNode(int num) {
+            this.val = num;
+        }
+    }
     public int maxDepth(TreeNode root) {
         if( root == null ) return 0;
         else{

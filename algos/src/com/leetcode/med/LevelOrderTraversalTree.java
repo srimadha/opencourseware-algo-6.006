@@ -1,4 +1,4 @@
-/**
+package com.leetcode.med; /**
 https://leetcode.com/problems/binary-tree-level-order-traversal/
 
 
@@ -23,6 +23,12 @@ return its level order traversal as:
 
 
 */
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -33,6 +39,15 @@ return its level order traversal as:
  * }
  */
 class LevelOrderTraversalTree {
+    class TreeNode {
+        TreeNode left;
+        TreeNode right;
+        int val;
+
+        TreeNode(int num) {
+            this.val = num;
+        }
+    }
     public List<List<Integer>> levelOrder(TreeNode root) {
         
         List<List<Integer>> result = new ArrayList<>();

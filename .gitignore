@@ -29,3 +29,5 @@ hs_err_pid*
 
 out
 /bin/
+src/com/leetcode/.DS_Store
+production/

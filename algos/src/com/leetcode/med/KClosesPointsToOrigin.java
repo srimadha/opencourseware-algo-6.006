@@ -41,47 +41,46 @@ import java.util.PriorityQueue;
 public class KClosesPointsToOrigin {
 
     class Solution {
-        class Point{
-            int x, y;
-            public Point( int x, int y ){
-                this.x = x;
-                this.y = y;
-            }
 
-            public int distanceFromOrigin(){
-                return (int)Math.pow(x, 2) + (int)Math.pow(y, 2);
-            }
+        private double getDist(int[] o1) {
+            return Math.pow( o1[0] , 2) + Math.pow(o1[1], 2);
         }
 
         public int[][] kClosest(int[][] points, int K) {
-            PriorityQueue<Point> pq = new PriorityQueue<>(new Comparator<Point>() {
-                @Override()
-                public int compare(Point p1, Point p2){
-                    return p2.distanceFromOrigin() - p1.distanceFromOrigin();
+            PriorityQueue<int[]> pq = new PriorityQueue<>(new Comparator<int[]>() {
+                @Override
+                public int compare(int[] o1, int[] o2) {
+                    double d1 =  getDist(o1);
+                    double d2 = getDist(o2);
+                    return d1 == d2 ? 0 : d1 > d2 ? -1 : 1;
+                }
+
+                private double getDist(int[] o1) {
+                    return Math.pow( o1[0] , 2) + Math.pow(o1[1], 2);
                 }
             });
 
-            for( int i=0; i<K; i++){
-                pq.offer( new Point( points[i][0], points[i][1]));
+            for(int i=0; i<K; i++){
+                pq.offer( points[i]);
             }
 
-            for( int i = K; i< points.length; i++){
-                Point p = new Point( points[i][0], points[i][1]);
-                if( p.distanceFromOrigin() < pq.peek().distanceFromOrigin() ){
+            for(int i =K ; i < points.length; i ++ ){
+                double d1 = getDist(points[i]);
+                double d2 = getDist(pq.peek());
+
+                if( d2 > d1 ){
                     pq.poll();
-                    pq.offer(p);
+                    pq.offer( points[i]);
                 }
             }
 
-            int result[][] = new int[K][2];
-
-            for( int i = 0; i < K ; i++){
-                Point p = pq.poll();
-                result[i][0] = p.x;
-                result[i][1] = p.y;
+            int results[][] = new int[pq.size()][2];
+            for(int i=0; i < K; i++){
+                int k[] = pq.poll();
+                results[i][0] = k[0];
+                results[i][1] = k[1];
             }
-
-            return result;
+            return results;
         }
     }
 }

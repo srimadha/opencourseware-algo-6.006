@@ -41,18 +41,16 @@ public class WordSearch {
             return true;
         }
 
-        if( i < 0 || j < 0 ||
-                i >= board.length || j >= board[i].length ||
-                board[i][j] != word.charAt(index) || visited[i][j] ){
+        if( i < 0 || j < 0 || i >= board.length || j >= board[i].length || board[i][j] != word.charAt(index) || visited[i][j] ){
             return false;
         }
 
         visited[i][j] = true;
 
         if( search(board, word, i+1, j, index+1) ||
-                search(board, word, i-1, j, index+1) ||
-                search(board, word, i, j+1, index+1) ||
-                search(board, word, i, j-1, index+1) ){
+            search(board, word, i-1, j, index+1) ||
+            search(board, word, i, j+1, index+1) ||
+            search(board, word, i, j-1, index+1) ){
             return true;
         }
 

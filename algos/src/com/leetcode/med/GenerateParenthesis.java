@@ -45,10 +45,36 @@ public class GenerateParenthesis {
             return finalSoln;
         }
 
-        public List<String> generateParenthesis(int n) {
+        public List<String> generateParenthesis2(int n) {
             List<String> soln = new ArrayList<String>();
             soln.add("");
             return  generateParenthesis( n, n, soln);
+        }
+
+        public List<String> generateParenthesis(int n) {
+            List<String> result = new ArrayList<>();
+            StringBuilder str = new StringBuilder();
+            dfs(n, n, result, str);
+            return result;
+        }
+
+        public void dfs(int left, int right, List<String> result, StringBuilder str){
+
+            //basecase
+            if(left==0 && right==0){
+                result.add(str.toString());
+            }
+            //general case
+            if(left > 0){  //add left
+                str.append('(');
+                dfs(left-1, right, result, str);
+                str.deleteCharAt(str.length() - 1);
+            }
+            if(right > left){
+                str.append(')');
+                dfs(left, right-1, result, str);
+                str.deleteCharAt(str.length() - 1);
+            }
         }
     }
 }

@@ -14,7 +14,7 @@ import java.util.Queue;
  *     TreeNode(int x) { val = x; }
  * }
  */
-class ZigZagLevelOrderBST {
+class   ZigZagLevelOrderBST {
     class TreeNode {
         TreeNode left;
         TreeNode right;

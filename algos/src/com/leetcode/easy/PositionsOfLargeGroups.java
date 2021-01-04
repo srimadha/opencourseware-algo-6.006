@@ -41,7 +41,7 @@ public class PositionsOfLargeGroups {
         int cCharCount = 1;
         int prevChar = s.charAt(0);
         List<List<Integer>> list = new ArrayList<>();
-        for( int i = 1; i < s.length(); i ++ ){
+        for( int i = 1; i < s.length(); i++ ){
             if( prevChar == s.charAt(i)){
                 cCharCount += 1;
             } else {

@@ -15,24 +15,20 @@ package com.leetcode.easy;
  You must do this in-place without making a copy of the array.
  Minimize the total number of operations.
  */
-public class MoveZeroes
+public class  MoveZeroes
 {
 
         public void moveZeroes(int[] nums) {
 
-            for( int i = 0; i< nums.length; i++){
-
-                if( nums[i] == 0 ){
-                    int j = i + 1;
-                    while( j < nums.length && nums[j] == 0 ){
-                        j++;
-                    }
-                    if( j < nums.length){
-                        nums[i] = nums[j];
-                        nums[j] = 0;
-                    }
+            int ind=0,start=0,end=nums.length-1;
+            while(ind<=end&&start<end){
+                if(nums[ind]!=0){
+                    int temp=nums[ind];
+                    nums[ind]=nums[start];
+                    nums[start]=temp;
+                    start++;
                 }
-
+                ind++;
             }
         }
 

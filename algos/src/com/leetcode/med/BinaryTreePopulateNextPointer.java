@@ -51,6 +51,7 @@ class Node {
     }
 };
 */
+
 class BinaryTreePopulateNextPointer {
     class Node{
         Node left;

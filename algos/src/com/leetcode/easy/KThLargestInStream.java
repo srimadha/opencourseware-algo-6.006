@@ -33,31 +33,24 @@ public class KThLargestInStream {
         this.k = k;
         this.pq = new PriorityQueue<Integer>(k);
         for( int i=0; i<nums.length; i++ ){
-            if( pq.size() < k )
-                pq.add( nums[i] );
-            else{
-                if( pq.peek() < nums[i]){
-                    pq.poll();
-                    pq.add(nums[i]);
-                } else {
-
-                }
-            }
+            addNum( nums[i] );
         }
 
     }
 
-    public int add(int val) {
+    private void addNum( int num ){
         if( pq.size() < k )
-            pq.add(val);
+            pq.add( num );
         else{
-            if( pq.peek() < val){
+            if( pq.peek() < num){
                 pq.poll();
-                pq.add(val);
-            } else {
-
+                pq.add(num );
             }
         }
+    }
+
+    public int add(int val) {
+        addNum( val );
         return pq.peek();
     }
 

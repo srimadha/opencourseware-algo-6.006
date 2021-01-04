@@ -21,28 +21,31 @@ import java.util.Stack;
  */
 public class ShortestUnsortedContinuousSubArray {
     public int findUnsortedSubarray(int[] nums) {
-        Stack<Integer> st = new Stack<Integer>();
-
-        int l = nums.length, r = 0;
-
-        for( int i=0; i < nums.length; i++ ){
-            while( !st.isEmpty() && nums[st.peek()] > nums[i] ){
-                l = Math.min( l, st.peek() );
-                st.pop();
+        if (nums.length <= 0) {
+            return 0;
+        }
+        // left
+        int left = 1;
+        int min = Integer.MAX_VALUE;
+        for (int i = nums.length - 1; i >= 0; i--) {
+            if (nums[i] <= min) {
+                min = nums[i];
+            } else {
+                left = i;
             }
-            st.push(i);
         }
 
-        st.clear();
-
-        for( int i=nums.length - 1; i >=0 ; i-- ){
-            while( !st.isEmpty() && nums[st.peek()] < nums[i] ){
-                r = Math.max( r, st.peek() );
-                st.pop();
+        // right
+        int right = 0;
+        int max = Integer.MIN_VALUE;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] >= max) {
+                max = nums[i];
+            } else {
+                right = i;
             }
-            st.push(i);
         }
 
-        return r - l < 0 ? 0 : r - l + 1;
+        return right - left + 1;
     }
 }

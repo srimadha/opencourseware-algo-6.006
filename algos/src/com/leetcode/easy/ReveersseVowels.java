@@ -22,26 +22,34 @@ import java.util.HashSet;
  The vowels does not include the letter "y".
  */
 public class ReveersseVowels {
+    static boolean isv(char c)
+    {
+        return (c=='a' || c=='A' || c=='e' || c=='E' || c=='i'|| c=='I'|| c=='o'|| c=='O'|| c=='u'||c=='U');
+    }
     public String reverseVowels(String s) {
-        String res = "";
-        int j = s.length() - 1;
-        HashSet<Character> vowels = new HashSet<Character>();
-        vowels.add('a');vowels.add('e');vowels.add('i');vowels.add('o');vowels.add('u');
-        vowels.add('A');vowels.add('E');vowels.add('I');vowels.add('O');vowels.add('U');
-        for(char ch : s.toCharArray()){
-            if(vowels.contains(ch)){
-                char c = s.charAt(j);
-                while(!vowels.contains(c) && j > 0){
-                    j --;
-                    c = s.charAt(j);
-                }
-                j--;
-                res = res + c;
-            }else{
-                res = res + ch;
-            }
-        }
 
-        return res;
+        int i=0;
+        int j=s.length()-1;
+        char ch[]=s.toCharArray();
+        while(i<j)
+        {
+            if(!isv(ch[i]))
+            {
+                i++;
+                continue;
+            }
+            if(!isv(ch[j]))
+            {
+                j--;
+                continue;
+            }
+            char t=ch[i];
+            ch[i]=ch[j];
+            ch[j]=t;
+            i++;
+            j--;
+        }
+        String st=String.copyValueOf(ch);
+        return st;
     }
 }

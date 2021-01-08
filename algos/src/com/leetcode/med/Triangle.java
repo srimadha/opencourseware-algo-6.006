@@ -37,7 +37,8 @@ public class Triangle {
         if (row + 1 == triangle.size()) {
             soln = triangle.get(row).get(col);
         } else {
-            soln = Math.min(minimumTotal(triangle, row + 1, col), minimumTotal(triangle, row + 1, col + 1)) + triangle.get(row).get(col);
+            soln = Math.min(minimumTotal(triangle, row + 1, col),
+                            minimumTotal(triangle, row + 1, col + 1) ) + triangle.get(row).get(col);
         }
         map.put(key, soln);
         return map.get(key);

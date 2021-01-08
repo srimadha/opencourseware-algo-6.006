@@ -5,6 +5,7 @@ package com.leetcode.hard;
  */
 
 import java.util.ArrayDeque;
+import java.util.Deque;
 
 /**
  * https://leetcode.com/problems/sliding-window-maximum/
@@ -30,42 +31,27 @@ import java.util.ArrayDeque;
  1  3  -1  -3  5 [3  6  7]      7
  */
 public class SlidingWindowMaximum {
-    ArrayDeque<Integer> deq = new ArrayDeque<Integer>();
-    int [] nums;
-
-    public void clean_deque(int i, int k) {
-        // remove indexes of elements not from sliding window
-        if (!deq.isEmpty() && deq.getFirst() == i - k)
-            deq.removeFirst();
-
-        // remove from deq indexes of all elements
-        // which are smaller than current element nums[i]
-        while (!deq.isEmpty() && nums[i] > nums[deq.getLast()])
-            deq.removeLast();
-    }
-
     public int[] maxSlidingWindow(int[] nums, int k) {
-        int n = nums.length;
-        if (n * k == 0) return new int[0];
-        if (k == 1) return nums;
-
-        // init deque and output
-        this.nums = nums;
-        int max_idx = 0;
-        for (int i = 0; i < k; i++) {
-            clean_deque(i, k);
-            deq.addLast(i);
-            // compute max in nums[:k]
-            if (nums[i] > nums[max_idx]) max_idx = i;
+        if (nums == null || k <= 0) {
+            return new int[0];
         }
-        int [] output = new int[n - k + 1];
-        output[0] = nums[max_idx];
+        int n = nums.length;
+        int[] output = new int[n-k+1];
+        int oi = 0;
 
-        // build output
-        for (int i  = k; i < n; i++) {
-            clean_deque(i, k);
-            deq.addLast(i);
-            output[i - k + 1] = nums[deq.getFirst()];
+        Deque<Integer> q = new ArrayDeque<>();
+        for (int i = 0; i < nums.length; i++) {
+            // remove numbers out of range k
+            while (!q.isEmpty() && q.peek() < i - k + 1) q.poll(); //remove from the front.
+
+            // remove smaller numbers in k range as they are useless
+            while (!q.isEmpty() && nums[q.peekLast()] < nums[i]) q.pollLast();
+
+            // q contains index... r contains content
+            q.offer(i);
+            if (i >= k - 1) {
+                output[oi++] = nums[q.peek()];
+            }
         }
         return output;
     }

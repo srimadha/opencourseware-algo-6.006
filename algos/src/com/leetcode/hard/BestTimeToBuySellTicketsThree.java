@@ -16,8 +16,8 @@ public class BestTimeToBuySellTicketsThree {
             int tmpMax = dp[i-1][0] - prices[0];
             for(int j=1; j < prices.length; j++ ){
                 dp[i][j] = Math.max( dp[i][j-1],  prices[j] + tmpMax );
-                tmpMax =  Math.max(tmpMax, dp[i-1][j] - prices[j]);
-                maxProfit = Math.max(maxProfit, dp[i][j]);
+                tmpMax =  Math.max( tmpMax, dp[i-1][j] - prices[j] );
+                maxProfit = Math.max( maxProfit, dp[i][j] );
             }
 
         }

@@ -32,4 +32,12 @@ public class NextPermutation {
         reverse(nums, last + 1, nums.length - 1);
     }
 
+    public static void main(String[] args) {
+        NextPermutation np = new NextPermutation();
+        int n[] = new int[] { 8, 1, 5, 4 };
+        np.nextPermutation( n );
+        for (int i = 0; i < n.length; i++) {
+            System.out.print( n[i]);
+        }
+    }
 }

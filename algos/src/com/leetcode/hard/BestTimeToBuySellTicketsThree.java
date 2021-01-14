@@ -31,6 +31,20 @@ public class BestTimeToBuySellTicketsThree {
         return maxProfit;
     }
 
+    public int maxProfit1(int[] prices) {
+        int buy0 = -prices[0];
+        int buy1 = -prices[0];
+        int sell0 = 0;
+        int sell1 = 0;
+        for (int price : prices) {
+            buy0 = Math.max(buy0, -price);
+            sell0 = Math.max(sell0, buy0 + price);
+            buy1 = Math.max(buy1, sell0 - price);
+            sell1 = Math.max(sell1, buy1 + price);
+        }
+        return sell1;
+    }
+
     public static void main(String[] args) {
         System.out.println( maxProfit(new int[]{3,3,5,0,0,3,1,4}));
     }

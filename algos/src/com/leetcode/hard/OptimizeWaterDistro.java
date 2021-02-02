@@ -23,7 +23,8 @@ public class OptimizeWaterDistro {
 
         int res = 0;
         for (int[] e : edges) {
-            int x = find(e[0]), y = find(e[1]);
+            int x = find(e[0]);
+            int y = find(e[1]);
             if (x != y) {
                 res += e[2];
                 uf[x] = y;
@@ -35,7 +36,8 @@ public class OptimizeWaterDistro {
 
     }
     private int find(int x) {
-        if (x != uf[x]) uf[x] = find(uf[x]);
+        if (x != uf[x])
+            uf[x] = find(uf[x]);
         return uf[x];
     }
 

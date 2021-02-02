@@ -64,7 +64,7 @@ public class ExamRoom {
             if (N - 1 - students.last() > dist)
                 student = N - 1;
 
-        }
+            }
         students.add( student );
         return student;
 
